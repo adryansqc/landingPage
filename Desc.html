@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kompetisi Jambisniss</title>
+    <title>Deskripsi Jambisnis</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -86,10 +86,11 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
+            z-index: 10;
         }
 
         /* Premium floating elements */
@@ -156,38 +157,32 @@
             }
         }
 
-        .hero {
-            width: 100%;
-            height: 70vh;
-            min-height: 500px;
-            background: url('image/HEADER.png') center center/cover no-repeat;
-            background-attachment: scroll;
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
             border-radius: var(--border-radius-large);
-            margin-bottom: 6rem;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 
+                0 25px 80px var(--shadow-primary),
+                0 8px 35px var(--shadow-gold),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 3rem;
-            box-shadow: 
-                0 40px 120px var(--shadow-primary),
-                0 15px 60px var(--shadow-gold),
-                inset 0 2px 0 rgba(255, 255, 255, 0.15),
-                0 0 150px rgba(255, 215, 0, 0.1);
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .hero::before {
+        .header::before {
             content: '';
             position: absolute;
-            inset: -3px;
+            inset: -2px;
             background: linear-gradient(135deg, var(--primary-gold) 0%, transparent 30%, var(--primary-gold) 70%, transparent 100%);
-            border-radius: calc(var(--border-radius-large) + 3px);
+            border-radius: calc(var(--border-radius-large) + 2px);
             z-index: -1;
+            opacity: 0.6;
             animation: premiumBorder 6s ease-in-out infinite alternate;
         }
 
@@ -197,40 +192,22 @@
                 transform: scale(1) rotate(0deg); 
             }
             100% { 
-                opacity: 0.9; 
-                transform: scale(1.003) rotate(1deg); 
+                opacity: 0.8; 
+                transform: scale(1.002) rotate(1deg); 
             }
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse at 30% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
-            border-radius: var(--border-radius-medium);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% { opacity: 0.5; transform: scale(1) rotate(0deg); }
-            100% { opacity: 1; transform: scale(1.02) rotate(2deg); }
-        }
-
-        .hero h1 {
+        .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
             background: linear-gradient(135deg, var(--text-white) 0%, var(--primary-gold) 50%, var(--primary-gold-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
             animation: titleGlow 3s ease-in-out infinite alternate;
-            position: relative;
-            z-index: 2;
             letter-spacing: -1px;
         }
 
@@ -239,104 +216,34 @@
             100% { text-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3); }
         }
 
-        .hero p {
-            font-size: clamp(1rem, 3vw, 1.4rem);
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 3rem;
-            animation: fadeInUp 1.5s ease-out 0.3s both;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1.5rem 4rem;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 50%, #ff8f00 100%);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            transition: all 0.5s var(--transition-smooth);
-            box-shadow: 
-                0 15px 40px rgba(255, 215, 0, 0.4),
-                0 5px 20px rgba(0,0,0,0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            animation: fadeInUp 1.5s ease-out 0.6s both;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transition: left 0.8s var(--transition-smooth);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 
-                0 25px 60px rgba(255, 215, 0, 0.6),
-                0 10px 30px rgba(0,0,0,0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            background: linear-gradient(135deg, var(--primary-gold-light) 0%, var(--primary-gold) 50%, var(--primary-gold-dark) 100%);
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-bottom: 6rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .card {
+        /* Main Content Section */
+        section#deskripsi {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
             border-radius: var(--border-radius-medium);
-            transition: all 0.7s var(--transition-smooth);
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            aspect-ratio: 5/4;
-            display: flex;
-            flex-direction: column;
+            padding: 4rem 3rem;
+            margin-bottom: 3rem;
             box-shadow: 
-                0 25px 80px var(--shadow-primary),
-                0 8px 35px var(--shadow-gold),
-                inset 0 2px 0 rgba(255, 255, 255, 0.1);
+                0 40px 120px var(--shadow-primary),
+                0 15px 60px var(--shadow-gold),
+                inset 0 2px 0 rgba(255, 255, 255, 0.8);
             border: 3px solid transparent;
             background-clip: padding-box;
-            will-change: transform, box-shadow;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+            transition: all 0.7s var(--transition-smooth);
         }
 
-        .card::before {
+        section#deskripsi::before {
             content: '';
             position: absolute;
             inset: -3px;
             background: linear-gradient(135deg, 
-                rgba(255, 215, 0, 0.6) 0%, 
+                rgba(255, 215, 0, 0.8) 0%, 
                 transparent 25%, 
-                rgba(255, 215, 0, 0.4) 50%,
+                rgba(255, 215, 0, 0.6) 50%,
                 transparent 75%,
-                rgba(255, 215, 0, 0.5) 100%);
+                rgba(255, 215, 0, 0.7) 100%);
             border-radius: calc(var(--border-radius-medium) + 3px);
             z-index: -1;
             opacity: 0;
@@ -344,85 +251,91 @@
             animation: cardBorderGlow 8s ease-in-out infinite alternate;
         }
 
-        .card:hover::before {
+        section#deskripsi:hover::before {
             opacity: 1;
         }
 
         @keyframes cardBorderGlow {
             0% { transform: rotate(0deg) scale(1); }
-            100% { transform: rotate(2deg) scale(1.01); }
+            100% { transform: rotate(1deg) scale(1.005); }
         }
 
-        .card::after {
+        section#deskripsi::after {
             content: '';
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(26, 35, 126, 0.05) 0%, transparent 40%);
             border-radius: var(--border-radius-medium);
             opacity: 0;
             transition: all 0.7s ease;
             pointer-events: none;
-            animation: cardInnerGlow 10s ease-in-out infinite alternate;
         }
 
-        .card:hover::after {
+        section#deskripsi:hover::after {
             opacity: 1;
         }
 
-        @keyframes cardInnerGlow {
-            0% { 
-                opacity: 0;
-                transform: scale(1) rotate(0deg); 
-            }
-            100% { 
-                opacity: 0.8;
-                transform: scale(1.02) rotate(1deg); 
-            }
-        }
-
-        .card:hover {
-            transform: translateY(-20px) scale(1.05);
+        section#deskripsi:hover {
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 
-                0 50px 140px rgba(26, 35, 126, 0.5),
-                0 20px 70px rgba(255, 215, 0, 0.4),
-                0 0 100px rgba(255, 215, 0, 0.15),
-                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+                0 60px 160px rgba(26, 35, 126, 0.4),
+                0 25px 80px rgba(255, 215, 0, 0.3),
+                0 0 80px rgba(255, 215, 0, 0.1),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9);
         }
 
-        .card-image {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-            border-radius: var(--border-radius-medium);
-            filter: contrast(1.15) saturate(1.25) brightness(1.08);
-            transition: all 0.7s ease;
+            letter-spacing: -0.5px;
         }
 
-        .card:hover .card-image {
-            filter: contrast(1.25) saturate(1.4) brightness(1.15);
-            transform: scale(1.02);
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            border-radius: 2px;
         }
 
-        .card1-bg {
-            background-image: url('image/GALA.png');
+        section p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            text-align: justify;
+            font-weight: 400;
+            opacity: 0.9;
+            transition: all 0.3s ease;
         }
 
-        .card2-bg { 
-            background-image: url('image/LOMBA.png');
+        section p:hover {
+            opacity: 1;
+            transform: translateX(5px);
         }
 
+        section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             background: linear-gradient(135deg, rgba(26, 35, 126, 0.95) 0%, rgba(13, 71, 161, 0.9) 100%);
             backdrop-filter: blur(20px);
-            border-radius: 25px;
+            border-radius: var(--border-radius-medium);
             color: rgba(255, 255, 255, 0.9);
             box-shadow: 
                 0 20px 60px rgba(26, 35, 126, 0.3),
@@ -432,6 +345,7 @@
             position: relative;
             font-size: 1.1rem;
             font-weight: 400;
+            animation: fadeInUp 1.5s ease-out 0.6s both;
         }
 
         footer::before {
@@ -454,24 +368,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        .card {
-            animation: cardReveal 0.8s ease-out forwards;
-        }
-
-        .card:nth-child(1) { animation-delay: 0.2s; opacity: 0; }
-        .card:nth-child(2) { animation-delay: 0.4s; opacity: 0; }
-
-        @keyframes cardReveal {
-            from {
-                opacity: 0;
-                transform: translateY(60px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
             }
         }
 
@@ -505,15 +401,13 @@
                 padding: 30px 20px;
             }
             
-            .hero {
-                height: 65vh;
-                min-height: 480px;
-                margin-bottom: 5rem;
+            .header {
+                padding: 2.5rem 2rem;
+                margin-bottom: 3.5rem;
             }
             
-            .content-grid {
-                max-width: 700px;
-                gap: 2.5rem;
+            section#deskripsi {
+                padding: 3rem 2.5rem;
             }
         }
 
@@ -522,44 +416,27 @@
                 padding: 25px 20px;
             }
 
-            .hero {
-                height: 60vh;
-                min-height: 400px;
-                margin-bottom: 4rem;
+            .header {
                 padding: 2rem 1.5rem;
+                margin-bottom: 3rem;
                 border-radius: var(--border-radius-medium);
             }
 
-            .hero::before {
-                border-radius: calc(var(--border-radius-medium) + 3px);
+            .header::before {
+                border-radius: calc(var(--border-radius-medium) + 2px);
             }
 
-            .btn {
-                padding: 1.3rem 3rem;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                max-width: 500px;
-                margin-bottom: 5rem;
-            }
-
-            .card {
-                aspect-ratio: 4/3;
+            section#deskripsi {
+                padding: 2.5rem 2rem;
                 border-radius: 25px;
             }
 
-            .card-image {
-                border-radius: 25px;
-            }
-
-            .card::before {
+            section#deskripsi::before {
                 border-radius: 28px;
             }
 
             footer {
-                padding: 3rem 2rem;
+                padding: 2.5rem 1.5rem;
                 font-size: 1rem;
             }
 
@@ -572,10 +449,6 @@
                 width: 60px;
                 height: 60px;
             }
-
-            ::-webkit-scrollbar {
-                width: 6px;
-            }
         }
 
         @media (max-width: 640px) {
@@ -583,48 +456,31 @@
                 padding: 20px 15px;
             }
 
-            .hero {
-                height: 55vh;
-                min-height: 380px;
-                margin-bottom: 3.5rem;
+            .header {
                 padding: 1.8rem 1.2rem;
+                margin-bottom: 2.5rem;
                 border-radius: 25px;
             }
 
-            .hero::before {
-                border-radius: 28px;
+            .header::before {
+                border-radius: 27px;
             }
 
-            .btn {
-                padding: 1.2rem 2.8rem;
-                border-radius: 50px;
-            }
-
-            .content-grid {
-                max-width: 400px;
-                gap: 2rem;
-                margin-bottom: 4rem;
-            }
-
-            .card {
-                aspect-ratio: 5/4;
+            section#deskripsi {
+                padding: 2rem 1.5rem;
                 border-radius: var(--border-radius-small);
             }
 
-            .card-image {
-                border-radius: var(--border-radius-small);
-            }
-
-            .card::before {
+            section#deskripsi::before {
                 border-radius: calc(var(--border-radius-small) + 3px);
             }
 
-            .card:hover {
-                transform: translateY(-10px) scale(1.02);
+            section#deskripsi:hover {
+                transform: translateY(-5px) scale(1.01);
             }
 
             footer {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.2rem;
                 border-radius: var(--border-radius-small);
                 font-size: 0.95rem;
             }
@@ -639,48 +495,31 @@
                 padding: 15px 12px;
             }
 
-            .hero {
-                height: 50vh;
-                min-height: 360px;
-                margin-bottom: 3rem;
+            .header {
                 padding: 1.5rem 1rem;
+                margin-bottom: 2rem;
                 border-radius: var(--border-radius-small);
             }
 
-            .hero::before {
-                border-radius: calc(var(--border-radius-small) + 3px);
+            .header::before {
+                border-radius: calc(var(--border-radius-small) + 2px);
             }
 
-            .btn {
-                padding: 1rem 2.2rem;
-                border-radius: 45px;
-            }
-
-            .content-grid {
-                max-width: 300px;
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            }
-
-            .card {
-                aspect-ratio: 4/3;
+            section#deskripsi {
+                padding: 1.8rem 1.2rem;
                 border-radius: 18px;
             }
 
-            .card-image {
-                border-radius: 18px;
-            }
-
-            .card::before {
+            section#deskripsi::before {
                 border-radius: 21px;
             }
 
-            .card:hover {
-                transform: translateY(-8px) scale(1.01);
+            section#deskripsi:hover {
+                transform: translateY(-3px) scale(1.005);
             }
 
             footer {
-                padding: 2rem 1rem;
+                padding: 1.8rem 1rem;
                 border-radius: 18px;
                 font-size: 0.9rem;
                 line-height: 1.5;
@@ -701,43 +540,27 @@
                 padding: 12px 10px;
             }
 
-            .hero {
-                height: 45vh;
-                min-height: 320px;
-                margin-bottom: 2.5rem;
+            .header {
                 padding: 1.2rem 0.8rem;
+                margin-bottom: 1.5rem;
                 border-radius: 18px;
             }
 
-            .hero::before {
-                border-radius: 21px;
+            .header::before {
+                border-radius: 20px;
             }
 
-            .btn {
-                padding: 0.9rem 2rem;
-                border-radius: 40px;
-            }
-
-            .content-grid {
-                max-width: 280px;
-                gap: 1.2rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .card {
+            section#deskripsi {
+                padding: 1.5rem 1rem;
                 border-radius: 16px;
             }
 
-            .card-image {
-                border-radius: 16px;
-            }
-
-            .card::before {
+            section#deskripsi::before {
                 border-radius: 19px;
             }
 
             footer {
-                padding: 1.8rem 0.8rem;
+                padding: 1.5rem 0.8rem;
                 border-radius: 16px;
                 font-size: 0.85rem;
             }
@@ -779,22 +602,46 @@
     </div>
 
     <div class="container">
-        <section class="hero">
-            <!-- Hero content can be added here if needed -->
-        </section>
-
-        <div class="content-grid">
-            <a href="desc.html" style="text-decoration:none;">
-                <div class="card">
-                    <div class="card-image card1-bg"></div>
-                </div>
-            </a>
-            <a href="lomba.html" style="text-decoration:none;">
-                <div class="card">
-                    <div class="card-image card2-bg"></div>
-                </div>
-            </a>
+        <div class="header">
+            <h1>Jambisnis.com</h1>
         </div>
+
+        <section id="deskripsi">
+            <h2>✨Syarat & Ketentuan Gala Literasi JBC 2025✨</h2>
+            <p>
+                Tema: Ekonomi, Kolaborasi, Investasi<br>
+                Grand Prize: Rp 5.000.000 💰
+            </p>
+            <p>
+                📅 Publikasi Naskah: 17 – 25 September 2025<br>
+                🎤 Workshop & Awarding: 28 September 2025 | 19.00 WIB<br>
+                📍 Lokasi: Paviliun JBC<br>
+            </p>
+            <p>
+                1.Peserta lomba adalah Warga Negara Indonesia (WNI) dan tinggal di Jambi.<br>
+                2.Untuk jurnalis, peserta adalah wartawan yang bekerja di media massa lokal, nasional, baik media cetak dan elektronik.<br>
+                3.Jurnalis yang mengikuti event ini wajib menerbitkan tulisan yang dilombakan di media tempatnya bekerja dan melampirkan bukti tayang.<br>
+                4.Untuk peserta umum dan pelajar, tulisan yang dilombakan cukup diunggah di google form pendaftaran yang disediakan.<br>
+                5.Artikel harus sesuai tema yaitu Ekonomi, Kolaborasi, Investasi dengan konteks Provinsi Jambi.<br>
+                6.Tulisan dibuat dalam Bahasa Indonesia dan merupakan karya sendiri bukan hasil AI atau akal imitasi.<br>
+                7.Panjang tulisan maksimal 3 halaman A4 dengan spasi dan ukuran font standard.<br>
+                8.Untuk jurnalis tulisan harus dipublikasikan dalam periode: 17 September-24 September 2025.<br>
+                9.Untuk semua kategori berlaku bahwa tulisan tidak menyudutkan pihak mana pun, berimbang, tidak mengandung unsur SARA dan melanggara norma kesusilaan. Dan tulisan merupakan tanggung jawab penulis.<br>
+                10.Peserta wajib follow akun Instagram @jambisniscom dan @jambibusinesscenter.<br>
+                11.Pengiriman karya dan kelengkapan data administrasi dilakukan dalam bentuk soft copy dengan mengunggahnya di Google Form Gala Literasi JBC 2025 paling Rabu, 24 September 2025 pukul 23.59 WIB.<br>
+            </p>
+            <p>
+                Keputusan panitia & dewan juri bersifat final.
+            </p>
+            <p>
+                🔗 Daftar & Publikasi: bit.ly/GalaLiterasiJBC2025<br>
+                📞 Info: 0811-7401-707<br>
+                🌐 www.kompetisi.jambisnis.com<br>
+            </p>
+            <p>
+                #GalaLiterasiJBC #JambiBusinessCenter #KompetisiJurnalistik #Jambisnis
+            </p>
+        </section>
 
         <footer>
             <p>&copy; 2025 Jambisnis.</p>
